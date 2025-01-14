@@ -3,73 +3,79 @@
 import { FaLocationArrow } from "react-icons/fa6";
 
 import { projects } from "@/data";
-import {PinContainer} from "@/components/ui/3d-pin";
+import { PinContainer } from "@/components/ui/3d-pin";
 
 const RecentProjects = () => {
   return (
-    <div className="py-20">
+    <div className="py-16" id="projects">
       <h1 className="heading">
         A small selection of{" "}
         <span className="text-purple">recent projects</span>
       </h1>
-      <div className="flex flex-wrap items-center justify-center p-4 gap-16 mt-10">
-        {projects.map((item) => (
+      {/* Adjusted gap-y to increase vertical spacing */}
+      <div className="flex flex-wrap items-center justify-center p-8 gap-x-16 gap-y-16 mt-6">
+        {projects.map(({ id, title, des, img, iconLists, link }) => (
           <div
-            className="lg:min-h-[32.5rem] h-[25rem] flex items-center justify-center sm:w-96 w-[80vw]"
-            key={item.id}
+            key={id}
+            className="lg:min-h-[28rem] sm:w-[32rem] w-[90vw] flex items-center justify-center"
           >
-            <PinContainer
-              title="/ui.aceternity.com"
-              href="https://twitter.com/mannupaaji"
-            >
-              <div className="relative flex items-center justify-center sm:w-96 w-[80vw] overflow-hidden h-[20vh] lg:h-[30vh] mb-10">
+            <PinContainer title={link} href={link}>
+              {/* Pin Upper Section */}
+              <div className="relative sm:w-[32rem] w-[90vw] h-[35vh] lg:h-[40vh] mb-8">
+                {/* Background Image */}
                 <div
-                  className="relative w-full h-full overflow-hidden lg:rounded-3xl"
+                  className="absolute inset-0 lg:rounded-3xl overflow-hidden z-0"
                   style={{ backgroundColor: "#13162D" }}
                 >
-                  <img src="/bg.png" alt="bgimg" />
+                  <img
+                    src="/bg.png"
+                    alt="Background"
+                    className="w-full h-full object-cover"
+                  />
                 </div>
+
+                {/* Foreground Image */}
                 <img
-                  src={item.img}
-                  alt="cover"
-                  className="z-10 absolute bottom-0"
+                  src={img}
+                  alt={title}
+                  className="absolute top-1/2 left-1/2 z-10 max-w-full max-h-full -translate-x-1/2 -translate-y-1/2"
                 />
               </div>
 
-              <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">
-                {item.title}
-              </h1>
+              {/* Pin Lower Section */}
+              <div className="text-center">
+                <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1">
+                  {title}
+                </h1>
 
-              <p
-                className="lg:text-xl lg:font-normal font-light text-sm line-clamp-2"
-                style={{
-                  color: "#BEC1DD",
-                  margin: "1vh 0",
-                }}
-              >
-                {item.des}
-              </p>
+                <p
+                  className="lg:text-xl lg:font-normal font-light text-sm line-clamp-2"
+                  style={{ color: "#BEC1DD", margin: "0.5vh 0" }}
+                >
+                  {des}
+                </p>
 
-              <div className="flex items-center justify-between mt-7 mb-3">
-                <div className="flex items-center">
-                  {item.iconLists.map((icon, index) => (
-                    <div
-                      key={index}
-                      className="border border-white/[.2] rounded-full bg-black lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
-                      style={{
-                        transform: `translateX(-${5 * index + 2}px)`,
-                      }}
-                    >
-                      <img src={icon} alt="icon5" className="p-2" />
-                    </div>
-                  ))}
-                </div>
+                <div className="flex items-center justify-between mt-5 mb-2">
+                  <div className="flex items-center">
+                    {iconLists.map((icon, index) => (
+                      <div
+                        key={icon}
+                        className="border border-white/[.2] rounded-full bg-black lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center"
+                        style={{
+                          transform: `translateX(-${5 * index * 2}px)`,
+                        }}
+                      >
+                        <img src={icon} alt="icon" className="p-2" />
+                      </div>
+                    ))}
+                  </div>
 
-                <div className="flex justify-center items-center">
-                  <p className="flex lg:text-xl md:text-xs text-sm text-purple">
-                    Check Live Site
-                  </p>
-                  <FaLocationArrow className="ms-3" color="#CBACF9" />
+                  <div className="flex justify-center items-center">
+                    <p className="flex lg:text-xl md:text-xs text-sm text-purple">
+                      Check Live Site
+                    </p>
+                    <FaLocationArrow className="ms-3" color="#CBACF9" />
+                  </div>
                 </div>
               </div>
             </PinContainer>
