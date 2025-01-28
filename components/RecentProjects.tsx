@@ -8,20 +8,20 @@ import { PinContainer } from "@/components/ui/3d-pin";
 const RecentProjects = () => {
   return (
     <div className="py-16" id="projects">
-      <h1 className="heading">
+      <h1 className="heading text-center mb-12">
         A small selection of{" "}
         <span className="text-purple">recent projects</span>
       </h1>
-      {/* Adjusted gap-y to increase vertical spacing */}
-      <div className="flex flex-wrap items-center justify-center p-8 gap-x-16 gap-y-16 mt-6">
+      {/* Flex container with wrapping */}
+      <div className="flex flex-wrap justify-center p-8 gap-x-16 gap-y-16 mt-6">
         {projects.map(({ id, title, des, img, iconLists, link }) => (
           <div
             key={id}
-            className="lg:min-h-[28rem] sm:w-[32rem] w-[90vw] flex items-center justify-center"
+            className="lg:min-h-[28rem] sm:w-[32rem] sm:gap-y-16 w-[90vw] flex items-center justify-center mb-8"
           >
             <PinContainer title={link} href={link}>
               {/* Pin Upper Section */}
-              <div className="relative sm:w-[32rem] w-[90vw] h-[35vh] lg:h-[40vh] mb-8">
+              <div className="relative sm:w-[32rem] sm:gap-y-16 w-[90vw] sm:h-auto h-[35vh] lg:h-[40vh] mb-8">
                 {/* Background Image */}
                 <div
                   className="absolute inset-0 lg:rounded-3xl overflow-hidden z-0"
