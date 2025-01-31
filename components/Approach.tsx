@@ -8,26 +8,22 @@ const Approach = () => {
   return (
     <section className = "w-full py-20">
         <h1 className="heading">
-            My <span className="text-purple"> approach </span>
+            Education & <span className="text-purple"> Experience </span>
         </h1>
       <div className="my-20 flex flex-col lg:flex-row items-center justify-center gap-4 ">
         <Card 
-            title="Planning & Strategy" 
-            icon={<AceternityIcon order="Phase 1" />}
-            description="We'll collaborate to map out your website's goals, target audience, 
-          and key functionalities. We'll discuss things like site structure, 
-          navigation, and content requirements.">
+            title="Bishop's College" 
+            icon={<AceternityIcon order="Education" />}
+            description="Completed G.C.E. Advanced Level in Physical Science at Bishop's College, building a strong foundation in mathematics, physics, and computing.">
           <CanvasRevealEffect
             animationSpeed={5.1}
             containerClassName="bg-emerald-900"
           />
         </Card>
         <Card 
-            title="Development & Progress Update" 
-            icon={<AceternityIcon order="Phase 2" />}
-            description="Once we agree on the plan, I cue my lofi playlist and dive into
-            coding. From initial sketches to polished code, I keep you updated
-            every step of the way.">
+            title="Sri Lanka Institute of Information Technology" 
+            icon={<AceternityIcon order="University" />}
+            description="Currently pursuing a BSc. (Hons) in Data Science at SLIIT, gaining expertise in Data Analytics, Machine Learning, Software Engineering, and Statistical Modeling.">
           <CanvasRevealEffect
             animationSpeed={3}
             containerClassName="bg-black"
@@ -40,11 +36,9 @@ const Approach = () => {
           
         </Card>
         <Card 
-            title="Development & Launch" 
-            icon={<AceternityIcon order="Phase 3"/>}
-            description="This is where the magic happens! Based on the approved design, 
-                 I'll translate everything into functional code, building your website
-                 from the ground up.">
+            title="Adventus.io" 
+            icon={<AceternityIcon order="Work"/>}
+            description="Worked as a Global Admissions Officer - Trainee at Adventus.io from May 2024 to September 2024. Responsibilities included managing student application processes, ensuring seamless communication between universities and students, and leveraging systems to achieve daily operational goals.">
           <CanvasRevealEffect
             animationSpeed={3}
             containerClassName="bg-sky-600"
