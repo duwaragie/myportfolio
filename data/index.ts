@@ -1,3 +1,5 @@
+import { link } from "fs";
+
 export const navItems = [
     { name: "About", link: "#about" },
     { name: "Projects", link: "#projects" },
@@ -205,13 +207,12 @@ export const navItems = [
     {
       id: 1,
       img: "/git.svg",
+      link: "https://github.com/duwaragie",
     },
+    
     {
       id: 2,
-      img: "/twit.svg",
-    },
-    {
-      id: 3,
       img: "/link.svg",
+      link: "https://www.linkedin.com/in/duwaragie-kugaraj/",
     },
   ];
