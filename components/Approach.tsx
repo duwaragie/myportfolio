@@ -10,7 +10,7 @@ const Approach = () => {
         <h1 className="heading">
             Education & <span className="text-purple"> Experience </span>
         </h1>
-      <div className="my-20 flex flex-col lg:flex-row items-center justify-center gap-4 ">
+      <div className="my-20 flex flex-col lg:flex-row items-center justify-center gap-4" id="resume">
         <Card 
             title="Bishop's College" 
             icon={<AceternityIcon order="Education" />}
@@ -38,7 +38,7 @@ const Approach = () => {
         <Card 
             title="Adventus.io" 
             icon={<AceternityIcon order="Work"/>}
-            description="Worked as a Global Admissions Officer - Trainee at Adventus.io from May 2024 to September 2024. Responsibilities included managing student application processes, ensuring seamless communication between universities and students, and leveraging systems to achieve daily operational goals.">
+            description="Worked as a Frontend Intern at Adventus.io from May 2024 to September 2024, developing and optimizing user interfaces, enhancing user experience, and collaborating with the team to improve web application performance.">
           <CanvasRevealEffect
             animationSpeed={3}
             containerClassName="bg-sky-600"
