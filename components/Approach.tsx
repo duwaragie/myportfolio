@@ -6,24 +6,38 @@ import { CanvasRevealEffect } from "@/components/ui/CanvasRevealEffect";
 
 const Approach = () => {
   return (
-    <section className = "w-full py-20">
-        <h1 className="heading">
-            Education & <span className="text-purple"> Experience </span>
-        </h1>
-      <div className="my-20 flex flex-col lg:flex-row items-center justify-center gap-4" id="resume">
-        <Card 
-            title="Bishop's College" 
-            icon={<AceternityIcon order="Education" />}
-            description="Completed G.C.E. Advanced Level in Physical Science at Bishop's College, building a strong foundation in mathematics, physics, and computing.">
+    <section className="w-full py-20" id="education">
+      <h1 className="heading">
+        My Academic <span className="text-purple"> Background </span>
+      </h1>
+      <div className="my-20 flex flex-col lg:flex-row items-center justify-center">
+        <Card
+          title="Sri Lanka Institute of Information Technology"
+          icon={<AceternityIcon order="University" />}
+          description="Currently pursuing a BSc. (Hons) in Data Science at SLIIT, gaining expertise in Data Analytics, Machine Learning, Software Engineering, and Statistical Modeling."
+        >
           <CanvasRevealEffect
             animationSpeed={5.1}
             containerClassName="bg-emerald-900"
           />
+          
         </Card>
-        <Card 
-            title="Sri Lanka Institute of Information Technology" 
-            icon={<AceternityIcon order="University" />}
-            description="Currently pursuing a BSc. (Hons) in Data Science at SLIIT, gaining expertise in Data Analytics, Machine Learning, Software Engineering, and Statistical Modeling.">
+        <Card
+          title="Bishop's College"
+          icon={<AceternityIcon order="Education" />}
+          description="Completed G.C.E. Advanced Level in Physical Science at Bishop's College, building a strong foundation in mathematics, physics, and computing."
+        >
+          <CanvasRevealEffect
+          animationSpeed={3}
+          containerClassName="bg-sky-600"
+          colors={[[125, 211, 252]]}
+          />
+        </Card>
+        {/* <Card
+          title="Adventus.io"
+          icon={<AceternityIcon order="Work" />}
+          description="Worked as a Frontend Intern at Adventus.io from May 2024 to September 2024, developing and optimizing user interfaces, enhancing user experience, and collaborating with the team to improve web application performance."
+          >
           <CanvasRevealEffect
             animationSpeed={3}
             containerClassName="bg-black"
@@ -33,22 +47,11 @@ const Approach = () => {
             ]}
             dotSize={2}
           />
-          
-        </Card>
-        <Card 
-            title="Adventus.io" 
-            icon={<AceternityIcon order="Work"/>}
-            description="Worked as a Frontend Intern at Adventus.io from May 2024 to September 2024, developing and optimizing user interfaces, enhancing user experience, and collaborating with the team to improve web application performance.">
-          <CanvasRevealEffect
-            animationSpeed={3}
-            containerClassName="bg-sky-600"
-            colors={[[125, 211, 252]]}
-          />
-        </Card>
+        </Card> */}
       </div>
-    </section> 
+    </section>
   );
-}
+};
 
 const Card = ({
   title,
@@ -92,7 +95,10 @@ const Card = ({
         <h2 className="dark:text-white opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200 text-center text-3xl">
           {title}
         </h2>
-        <h2 className="text-sm dark:text-white opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200 text-center" style={{color: '#e4ecff'}}>
+        <h2
+          className="text-sm dark:text-white opacity-0 group-hover/canvas-card:opacity-100 relative z-10 text-black mt-4  font-bold group-hover/canvas-card:text-white group-hover/canvas-card:-translate-y-2 transition duration-200 text-center"
+          style={{ color: "#e4ecff" }}
+        >
           {description}
         </h2>
       </div>
@@ -100,15 +106,15 @@ const Card = ({
   );
 };
 
-const AceternityIcon = ({order} : {order: string}) => {
+const AceternityIcon = ({ order }: { order: string }) => {
   return (
     <div>
-        <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-            <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-            <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-5 py-2  text-white backdrop-blur-3xl text-2xl font-bold">
-                {order}
-            </span>
-        </button>
+      <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
+        <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
+        <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-5 py-2  text-white backdrop-blur-3xl text-2xl font-bold">
+          {order}
+        </span>
+      </button>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 "use client";
-
-import { cn } from "@/lib/utils";
 import React, { useEffect, useState } from "react";
+import { FaJs, FaDatabase, FaCloud, FaTools, FaCogs } from 'react-icons/fa'; // Example icon imports
+import { cn } from "@/lib/utils";
 
 export const InfiniteMovingCards = ({
   items,
@@ -14,6 +14,7 @@ export const InfiniteMovingCards = ({
     quote: string;
     name: string;
     title: string;
+    icon: JSX.Element; // Add the icon as a prop
   }[];
   direction?: "left" | "right";
   speed?: "fast" | "normal" | "slow";
@@ -23,64 +24,69 @@ export const InfiniteMovingCards = ({
   const containerRef = React.useRef<HTMLDivElement>(null);
   const scrollerRef = React.useRef<HTMLUListElement>(null);
 
-  useEffect(() => {
-    addAnimation();
-  }, []);
   const [start, setStart] = useState(false);
-  function addAnimation() {
-    if (containerRef.current && scrollerRef.current) {
-      const scrollerContent = Array.from(scrollerRef.current.children);
 
-      scrollerContent.forEach((item) => {
-        const duplicatedItem = item.cloneNode(true);
-        if (scrollerRef.current) {
-          scrollerRef.current.appendChild(duplicatedItem);
+  useEffect(() => {
+    const getDirection = () => {
+      if (containerRef.current) {
+        if (direction === "left") {
+          containerRef.current.style.setProperty(
+            "--animation-direction",
+            "forwards"
+          );
+        } else {
+          containerRef.current.style.setProperty(
+            "--animation-direction",
+            "reverse"
+          );
         }
-      });
+      }
+    };
 
-      getDirection();
-      getSpeed();
-      setStart(true);
-    }
-  }
-  const getDirection = () => {
-    if (containerRef.current) {
-      if (direction === "left") {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "forwards"
-        );
-      } else {
-        containerRef.current.style.setProperty(
-          "--animation-direction",
-          "reverse"
-        );
+    const getSpeed = () => {
+      if (containerRef.current) {
+        if (speed === "fast") {
+          containerRef.current.style.setProperty("--animation-duration", "20s");
+        } else if (speed === "normal") {
+          containerRef.current.style.setProperty("--animation-duration", "40s");
+        } else {
+          containerRef.current.style.setProperty("--animation-duration", "80s");
+        }
+      }
+    };
+
+    function addAnimation() {
+      if (containerRef.current && scrollerRef.current) {
+        const scrollerContent = Array.from(scrollerRef.current.children);
+
+        scrollerContent.forEach((item) => {
+          const duplicatedItem = item.cloneNode(true);
+          if (scrollerRef.current) {
+            scrollerRef.current.appendChild(duplicatedItem);
+          }
+        });
+
+        getDirection();
+        getSpeed();
+        setStart(true);
       }
     }
-  };
-  const getSpeed = () => {
-    if (containerRef.current) {
-      if (speed === "fast") {
-        containerRef.current.style.setProperty("--animation-duration", "20s");
-      } else if (speed === "normal") {
-        containerRef.current.style.setProperty("--animation-duration", "40s");
-      } else {
-        containerRef.current.style.setProperty("--animation-duration", "80s");
-      }
-    }
-  };
+
+    addAnimation();
+  }, [direction, speed]);
+
   return (
     <div
       ref={containerRef}
       className={cn(
-        "scroller relative z-20  max-w-screen overflow-hidden  [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+        "scroller relative z-20 max-w-screen overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
         className
       )}
     >
       <ul
         ref={scrollerRef}
         className={cn(
-          " flex min-w-full shrink-0 gap-16 py-4 w-max flex-nowrap",
+          "flex min-w-full shrink-0 gap-16 py-4 w-max flex-nowrap",
           start && "animate-scroll ",
           pauseOnHover && "hover:[animation-play-state:paused]"
         )}
@@ -89,9 +95,9 @@ export const InfiniteMovingCards = ({
           <li
             className="w-[90vw] max-w-full relative rounded-2xl border border-b-0 flex-shrink-0 border-slate-800 p-5 md:p-16 md:w-[60vw]"
             style={{
-                background: "rgb(4,7,29)",
-                backgroundColor:
-                  "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
+              background: "rgb(4,7,29)",
+              backgroundColor:
+                "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
             }}
             key={idx}
           >
@@ -100,23 +106,19 @@ export const InfiniteMovingCards = ({
                 aria-hidden="true"
                 className="user-select-none -z-1 pointer-events-none absolute -left-0.5 -top-0.5 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
               ></div>
-              <span className=" relative z-20 text-sm md:text-lg leading-[1.6] text-white-100 font-normal">
+              <span className="relative z-20 text-sm md:text-lg leading-[1.6] text-white-100 font-normal">
                 {item.quote}
               </span>
               <div className="relative z-20 mt-6 flex flex-row items-center">
-                <span className="flex flex-col gap-1">
-                    <div className="me-3">
-                        <img src="/profile.svg" alt="profile" className="w-10 h-10 rounded-full" />
-                    </div>
-                    <div className="flex flex-col gap-1">
-                        <span className=" text-xl leading-[1.6] text-white font-bold">
-                            {item.name}
-                        </span>
-                        <span className=" text-sm leading-[1.6] text-white-200 font-normal">
-                            {item.title}
-                        </span>
-                    </div>
-                </span>
+                <span className="me-3">{item.icon}</span> {/* Render the icon */}
+                <div className="flex flex-col gap-1">
+                  <span className="text-xl leading-[1.6] text-white font-bold">
+                    {item.name}
+                  </span>
+                  <span className="text-sm leading-[1.6] text-white-200 font-normal">
+                    {item.title}
+                  </span>
+                </div>
               </div>
             </blockquote>
           </li>
@@ -125,3 +127,37 @@ export const InfiniteMovingCards = ({
     </div>
   );
 };
+
+// Update the `Skills` array to include icons
+export const Skills = [
+  {
+    quote: "Highly skilled in JavaScript, TypeScript, and a range of modern frameworks, enabling the development of dynamic, responsive, and high-performance applications.",
+    name: "Programming & Frameworks",
+    title: "React, Node.js, Next.js, .NET, Python, Java, C/C++",
+    icon: <FaJs size={40} color="white" /> // Add icon for this skill
+  },
+  {
+    quote: "Experienced in designing, managing, and optimizing both relational and NoSQL databases to ensure efficient data storage, retrieval, and scalability.",
+    name: "Database Technologies",
+    title: "PostgreSQL, MySQL, Firebase, MongoDB",
+    icon: <FaDatabase size={40} color="white" /> // Add icon for this skill
+  },
+  {
+    quote: "Proficient in deploying, securing, and managing cloud-based applications using industry-leading services to enhance performance, reliability, and scalability.",
+    name: "Cloud Services",
+    title: "AWS (Amplify, EC2, RDS, S3)",
+    icon: <FaCloud size={40} color="white" /> // Add icon for this skill
+  },
+  {
+    quote: "Adept at utilizing modern development tools for version control, collaborative coding, debugging, and workflow automation to streamline the software development lifecycle.",
+    name: "Development Tools",
+    title: "Git, GitHub, VS Code, Jupyter Notebooks",
+    icon: <FaTools size={40} color="white" /> // Add icon for this skill
+  },
+  {
+    quote: "Comprehensive knowledge of full-stack development, API integration, and designing scalable, efficient, and maintainable software solutions.",
+    name: "Additional Skills",
+    title: "RESTful APIs, MERN Stack, Frontend & Backend Development",
+    icon: <FaCogs size={40} color="white" /> // Add icon for this skill
+  },
+];

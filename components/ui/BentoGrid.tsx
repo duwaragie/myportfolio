@@ -7,7 +7,6 @@ import MagicButton from "./MagicButton";
 import { BackgroundGradientAnimation } from "./GradientBg";
 import { GlobeDemo } from "./GridGlobe";
 
-
 export const BentoGrid = ({
   className,
   children,
@@ -26,8 +25,6 @@ export const BentoGrid = ({
     </div>
   );
 };
-
-
 
 export const BentoGridItem = ({
   className,
