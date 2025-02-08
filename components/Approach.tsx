@@ -33,10 +33,10 @@ const Approach = () => {
           colors={[[125, 211, 252]]}
           />
         </Card>
-        {/* <Card
-          title="Adventus.io"
-          icon={<AceternityIcon order="Work" />}
-          description="Worked as a Frontend Intern at Adventus.io from May 2024 to September 2024, developing and optimizing user interfaces, enhancing user experience, and collaborating with the team to improve web application performance."
+        <Card
+          title="Rotaract Club of SLIIT"
+          icon={<AceternityIcon order="Affiliation" />}
+          description="I served on the Board of Directors for IT Avenue during the 2024-2025 Rotary International year, contributing to strategic decisions and driving innovation in the tech community."
           >
           <CanvasRevealEffect
             animationSpeed={3}
@@ -47,7 +47,7 @@ const Approach = () => {
             ]}
             dotSize={2}
           />
-        </Card> */}
+        </Card>
       </div>
     </section>
   );
