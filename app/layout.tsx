@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-
+import { Toaster } from "react-hot-toast"; // ✅ Import Toaster
 import "./globals.css";
 import { ThemeProvider } from "./provider";
 
@@ -28,6 +28,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
+          <Toaster position="top-center" reverseOrder={false} /> {/* ✅ Add Toaster here */}
           {children}
         </ThemeProvider>
       </body>

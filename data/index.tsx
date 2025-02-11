@@ -5,7 +5,8 @@ export const navItems = [
   { name: "About", link: "#about" },
   { name: "Education", link: "#education" },
   { name: "Projects", link: "#projects" },
-  { name: "Testimonials", link: "#testimonials" },
+  { name: "Work", link: "#work" },
+  { name: "Strength", link: "#abilities" },
   { name: "Contact", link: "#contact" },
 ];
 
@@ -145,7 +146,6 @@ export const Skills = [
     icon: <FaCogs size={40} color="white" />, // Use the actual component
   },
 ];
-
 
 export const testimonials = [
   {

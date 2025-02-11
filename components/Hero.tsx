@@ -1,13 +1,23 @@
 "use client";
+import { useState } from 'react';
 import { FaLocationArrow } from 'react-icons/fa';
+import { toast, Toaster } from 'react-hot-toast';
 import MagicButton from './ui/MagicButton';
 import { Spotlight } from './ui/Spotlight';
 import { TextGenerateEffect } from './ui/TextGenerateEffect';
 import { Typewriter } from 'react-simple-typewriter';
+import Image from 'next/image';
 
 const Hero = () => {
+  const email = "duwaragie22@gmail.com";
+
+  const copyToClipboard = () => {
+    navigator.clipboard.writeText(email);
+    toast.success("Email copied to clipboard!");
+  };
+
   return (
-    <div className="pb-20 pt-36">
+    <div className="pb-20 pt-36 relative">
       <div>
         <Spotlight className="-top-40 -left-10 md:-left-32 md:-top-20 h-screen" fill="white" />
         <Spotlight className="top-10 left-full h-[80vh] w-[50vw]" fill="purple" />
@@ -20,7 +30,24 @@ const Hero = () => {
 
       <div className="flex justify-center relative my-20 z-10">
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
-          <h2 className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80">
+          <div className="relative group cursor-pointer" onClick={copyToClipboard}>
+            <div className="w-64 h-64 rounded-full bg-purple-500 p-4 shadow-lg transition-transform duration-300 transform group-hover:scale-105">
+              <Image
+                src="/profile.png"
+                alt="Profile Picture"
+                width={240}
+                height={240}
+                className="rounded-full object-cover w-full h-full"
+              />
+            </div>
+            <div className="absolute inset-0 flex flex-col items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 bg-black/70 text-white rounded-full p-4">
+              <h3 className="text-lg font-semibold">Duwaragie</h3>
+              <p className="text-sm">{email}</p>
+              <p className="text-sm">Full Stack Developer</p>
+            </div>
+          </div>
+
+          <h2 className="uppercase tracking-widest text-xs text-center text-blue-100 max-w-80 mt-6">
             Dynamic Web Magic with Next.js
           </h2>
           <TextGenerateEffect
