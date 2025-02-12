@@ -33,7 +33,7 @@ const Hero = () => {
         <div className="max-w-[89vw] md:max-w-2xl lg:max-w-[60vw] flex flex-col items-center justify-center">
           <Button
             duration={5000}
-            borderRadius="75%"
+            borderRadius="100%"
             className="w-64 h-64 flex items-center justify-center p-4 shadow-lg transition-transform duration-300 transform group-hover:scale-105"
           >
             <Image
