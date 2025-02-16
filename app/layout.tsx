@@ -28,7 +28,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <Toaster position="top-center" reverseOrder={false} /> {/* ✅ Add Toaster here */}
+          <Toaster position="top-center" reverseOrder={false} />
           {children}
         </ThemeProvider>
       </body>
