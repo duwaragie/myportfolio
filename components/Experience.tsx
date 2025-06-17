@@ -1,3 +1,4 @@
+"use client";
 import { workExperience } from '@/data/index'
 import React from 'react'
 import { Button } from './ui/MovingBorders'
