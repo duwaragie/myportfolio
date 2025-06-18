@@ -24,7 +24,7 @@ const ProjectCard = ({ project, className = "" }: { project: Project; className?
     animate={{ opacity: 1, y: 0 }}
     exit={{ opacity: 0, y: -20 }}
     transition={{ duration: 0.5 }}
-    className={`w-[90vw] sm:w-[32rem] h-[32rem] mx-auto flex flex-col items-center justify-center mb-8 ${className}`}
+    className={`w-full max-w-[90vw] sm:max-w-[32rem] h-[32rem] mx-auto flex flex-col items-center justify-center mb-8 ${className}`}
   >
     <PinContainer title={project.link} href={project.link}>
       <div className="relative w-[90vw] sm:w-[32rem] h-[20rem] mb-4 overflow-hidden border border-white/20 rounded-3xl">
@@ -91,7 +91,7 @@ const RecentProjects = ({ setIsAnyModalOpen }: RecentProjectsProps) => {
   }, [isModalOpen, setIsAnyModalOpen]);
 
   return (
-    <div className="py-16 relative" id="projects">
+    <div className="pt-8 pb-16 relative" id="projects">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col items-center mb-12">
           <h1 className="heading text-center">
