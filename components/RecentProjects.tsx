@@ -24,12 +24,12 @@ const ProjectCard = ({ project, className = "" }: { project: Project; className?
     animate={{ opacity: 1, y: 0 }}
     exit={{ opacity: 0, y: -20 }}
     transition={{ duration: 0.5 }}
-    className={`lg:min-h-[28rem] sm:w-[32rem] sm:gap-y-16 w-[90vw] flex items-center justify-center mb-8 ${className}`}
+    className={`w-[90vw] sm:w-[32rem] h-[32rem] mx-auto flex flex-col items-center justify-center mb-8 ${className}`}
   >
     <PinContainer title={project.link} href={project.link}>
-      <div className="relative sm:w-[32rem] sm:gap-y-16 w-[90vw] sm:h-auto h-[35vh] lg:h-[40vh] mb-8">
+      <div className="relative w-[90vw] sm:w-[32rem] h-[20rem] mb-4 overflow-hidden border border-white/20 rounded-3xl">
         <div
-          className="absolute inset-0 lg:rounded-3xl overflow-hidden z-0 group-hover:scale-105 transition-transform duration-300"
+          className="absolute inset-0 rounded-3xl overflow-hidden z-0 group-hover:scale-105 transition-transform duration-300"
           style={{ backgroundColor: "#13162D" }}
         >
           <img
@@ -38,25 +38,22 @@ const ProjectCard = ({ project, className = "" }: { project: Project; className?
             className="w-full h-full object-cover opacity-60"
           />
         </div>
-
         <img
           src={project.img}
           alt={project.title}
-          className="absolute top-1/2 left-1/2 z-10 max-w-full max-h-full -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 group-hover:scale-110"
+          className="absolute top-1/2 left-1/2 z-10 w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 group-hover:scale-110"
         />
       </div>
 
-      <div className="text-center">
+      <div className="text-center w-full px-4 min-h-[12rem]">
         <h1 className="font-bold lg:text-2xl md:text-xl text-base line-clamp-1 group-hover:text-purple transition-colors duration-300">
           {project.title}
         </h1>
-
-        <p className="lg:text-xl lg:font-normal font-light text-sm line-clamp-2 text-white/70 group-hover:text-white/90 transition-colors duration-300 my-3">
+        <p className="lg:text-xl md:text-base text-sm font-light line-clamp-2 text-white/70 group-hover:text-white/90 transition-colors duration-300 my-3">
           {project.des}
         </p>
-
         <div className="flex items-center justify-between mt-5 mb-2">
-          <div className="flex items-center">
+          <div className="flex items-center gap-2">
             {project.iconLists.map((icon: string, index: number) => (
               <motion.div
                 key={icon}
@@ -69,12 +66,11 @@ const ProjectCard = ({ project, className = "" }: { project: Project; className?
               </motion.div>
             ))}
           </div>
-
           <div className="flex justify-center items-center group">
-            <p className="flex lg:text-xl md:text-xs text-sm text-purple group-hover:translate-x-1 transition-transform duration-300">
+            <p className="flex lg:text-xl md:text-base text-sm text-purple group-hover:translate-x-1 transition-transform duration-300">
               View Project
             </p>
-            <FaLocationArrow className="ms-3 text-purple group-hover:translate-x-1 transition-transform duration-300" />
+            <FaLocationArrow className="ml-3 text-purple group-hover:translate-x-1 transition-transform duration-300" />
           </div>
         </div>
       </div>
@@ -90,23 +86,23 @@ const RecentProjects = ({ setIsAnyModalOpen }: RecentProjectsProps) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const recentProjects = projects.slice(0, 3);
 
-  // Update parent component when modal state changes
   useEffect(() => {
     setIsAnyModalOpen?.(isModalOpen);
   }, [isModalOpen, setIsAnyModalOpen]);
 
   return (
     <div className="py-16 relative" id="projects">
-      <div className="max-w-7xl mx-auto px-4">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col items-center mb-12">
           <h1 className="heading text-center">
             A small selection of{" "}
             <span className="text-purple">recent projects</span>
           </h1>
-        </div>        <AnimatePresence mode="wait">
+        </div>
+        <AnimatePresence mode="wait">
           <motion.div
             layout
-            className="flex flex-wrap justify-center p-8 gap-x-16 gap-y-16 mt-6"
+            className="flex flex-col md:flex-row md:flex-wrap justify-center gap-8 p-4"
           >
             {recentProjects.map((project) => (
               <ProjectCard key={project.id} project={project} />
@@ -144,7 +140,7 @@ const RecentProjects = ({ setIsAnyModalOpen }: RecentProjectsProps) => {
                 initial={{ opacity: 0, scale: 0.95 }}
                 animate={{ opacity: 1, scale: 1 }}
                 exit={{ opacity: 0, scale: 0.95 }}
-                className="fixed inset-4 md:inset-10 bg-black-100/95 rounded-3xl z-50 overflow-y-auto"
+                className="fixed top-4 bottom-4 left-2 right-2 md:top-10 md:bottom-10 md:left-10 md:right-10 bg-black-100/95 rounded-3xl z-50 overflow-y-auto"
               >
                 <div className="sticky top-0 flex justify-between items-center p-6 bg-black-100/95 backdrop-blur-sm border-b border-white/10">
                   <h2 className="text-2xl font-bold text-white">All Projects</h2>
@@ -157,9 +153,8 @@ const RecentProjects = ({ setIsAnyModalOpen }: RecentProjectsProps) => {
                     <IoCloseCircleOutline />
                   </motion.button>
                 </div>
-
-                <div className="p-6">
-                  <div className="flex flex-wrap justify-center gap-x-16 gap-y-16">
+                <div className="p-4">
+                  <div className="flex flex-col md:flex-row md:flex-wrap justify-center gap-8">
                     {projects.map((project) => (
                       <ProjectCard key={project.id} project={project} />
                     ))}
@@ -175,3 +170,5 @@ const RecentProjects = ({ setIsAnyModalOpen }: RecentProjectsProps) => {
 };
 
 export default RecentProjects;
+
+
