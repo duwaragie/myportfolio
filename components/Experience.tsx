@@ -3,12 +3,11 @@ import { workExperience } from '@/data/index'
 import React from 'react'
 import { Button } from './ui/MovingBorders'
 
-const Experience = () => {
-  return (
+const Experience = () => {  return (
     <div className="py-16" id="work">
       <h1 className="heading">
-        My 
-        <span className="text-purple"> work experience</span>
+        Positions
+        <span className="text-purple"> I'm seeking</span>
       </h1>
 
       <div className="w-full mt-12 grid lg:grid-cols-4 grid-cols-1 gap-10">

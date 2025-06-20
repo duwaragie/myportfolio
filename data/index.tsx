@@ -74,14 +74,13 @@ export const gridItems = [
   },
 ];
 
-export const projects = [
-  {
+export const projects = [  {
     id: 1,
      title: "GoSync – Online Bus Ticket Booking System",
-    des: "Built a full-stack MERN-based bus ticketing platform with real-time seat booking, admin dashboards, and QR-based ticketing. Integrated 10+ modules including authentication, scheduling, and notifications. Dockerized and CI/CD-enabled.",
+    des: "MERN stack bus ticketing platform featuring real-time seat booking, map integration, notification scheduling, admin dashboards, and QR-based ticketing. Dockerized with CI/CD integration.",
     img: "/p2.jpg",
     iconLists: ["/re.svg","/node.svg", "/mongo.svg", "/tail.svg", "/dock.svg", "/git.svg"],
-    link: "https://github.com/adrianhajdin/zoom-clone",
+    link: "https://github.com/duwaragie",
     projectType: "web",
   },
   {
@@ -90,7 +89,7 @@ export const projects = [
     des: "Android app to discover nearby coworking spaces and cafés. Features location-based search, Jetpack Compose UI, and Room database for favorites.",
     img: "/P3 (2).png",
     iconLists: ["/kotlin.svg", "/android.svg", "/leaflet.svg", "/room.svg"],
-    link: "https://github.com/adrianhajdin/ai_saas_app",
+    link: "https://github.com/duwaragie",
     projectType: "mobile",
   },
   {
@@ -99,7 +98,7 @@ export const projects = [
     des: "Designed a secure, role-based Employee Management System, ensuring efficient admin and employee functionality.",
     img: "/p1.png",
     iconLists: [ "/java.svg", "/mysql.svg"],
-    link: "https://github.com/adrianhajdin?tab=repositories",
+    link: "https://github.com/duwaragie",
     projectType: "web",
   },
   {
@@ -108,7 +107,7 @@ export const projects = [
     des: "Recreated the Apple iPhone 15 Pro website, combining GSAP animations and Three.js 3D effects.",
     img: "/p4.svg",
     iconLists: ["/next.svg", "/tail.svg", "/ts.svg", "/three.svg", "/gsap.svg"],
-    link: "https://github.com/adrianhajdin/iphone",
+    link: "https://github.com/duwaragie",
     projectType: "web",
   },
 ];
@@ -220,29 +219,29 @@ export const companies = [
 export const workExperience = [
   {
     id: 1,
-    title: "Frontend Engineer Intern",
-    desc: "Assisted in the development of a web-based platform using React.js, enhancing interactivity.",
+    title: "Data Analyst Intern",
+    desc: "Leveraging SQL and Python to extract actionable insights from complex datasets, creating compelling visualizations to drive data-informed decisions.",
     className: "md:col-span-2",
     thumbnail: "/exp1.svg",
   },
   {
     id: 2,
-    title: "Mobile App Dev - JSM Tech",
-    desc: "Designed and developed mobile app for both iOS & Android platforms using React Native.",
+    title: "Software Engineer Intern",
+    desc: "Collaborating on full-stack development using modern frameworks, implementing robust solutions and contributing to agile development workflows.",
     className: "md:col-span-2", // change to md:col-span-2
     thumbnail: "/exp2.svg",
   },
   {
     id: 3,
-    title: "Freelance App Dev Project",
-    desc: "Led the dev of a mobile app for a client, from initial concept to deployment on app stores.",
+    title: "Back-end Development Intern",
+    desc: "Designing scalable APIs and optimizing database performance, focusing on security best practices and server-side architecture.",
     className: "md:col-span-2", // change to md:col-span-2
     thumbnail: "/exp3.svg",
   },
   {
     id: 4,
-    title: "Lead Frontend Developer",
-    desc: "Developed and maintained user-facing features using modern frontend technologies.",
+    title: "Business Analyst Intern",
+    desc: "Bridging technical and business domains by translating requirements, conducting market analysis, and developing strategic recommendations.",
     className: "md:col-span-2",
     thumbnail: "/exp4.svg",
   },
