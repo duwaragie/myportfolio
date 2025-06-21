@@ -5,6 +5,7 @@ import { FaLocationArrow, FaEnvelope, FaPhone } from "react-icons/fa";
 import { socialMedia } from "@/data/index";
 import emailjs from "@emailjs/browser";
 import debounce from "lodash.debounce";
+import Image from "next/image";
 
 interface FormData {
   name: string;
@@ -30,7 +31,7 @@ const Footer = () => {
       console.log("Debounced message input:", value);
       // You could add live validation, preview, or word count logic here
     }, 300),
-    []
+    [debounce]
   );
 
   const handleChange = (
@@ -100,7 +101,7 @@ const Footer = () => {
       </div>
 
       {/* Contact Form Section */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 my-16 backdrop-filter backdrop-blur-lg bg-opacity-10 bg-black-200 rounded-2xl p-8 border border-black-300 shadow-[0_0_15px_rgba(123,104,238,0.25)]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 my-16 backdrop-filter backdrop-blur-lg bg-opacity-10 bg-black-200 rounded-2xl p-8 border border-black-300 shadow-[0_0_15px_rgba(123,104,238,0.3)]">
         {/* Left Side - Contact Info */}
         <div className="space-y-8">
           <div>
@@ -108,18 +109,16 @@ const Footer = () => {
               Contact <span className="text-purple">Me</span>
             </h2>
             <h3 className="text-xl text-white-200">
-              Let&apos;s Code, Collaborate & Create
+              Let&apos;s Code, Collaborate &amp; Create
             </h3>
-          </div>
-
-          <p className="text-white-200 leading-relaxed">
-            I’m a Data Science undergrad and a full-stack developer who thrives
+          </div>          <p className="text-white-200 leading-relaxed">
+            I&#39;m a Data Science undergrad and a full-stack developer who thrives
             on turning ideas into scalable solutions. From React UIs to backend
-            magic with Node and Mongo, let’s talk shop or start a project!
+            magic with Node and Mongo, let&#39;s talk shop or start a project!
           </p>
           <p className="text-white-200 leading-relaxed">
-            Whether it's a full-stack idea, a data-driven solution, or a dev
-            collab, I'm all ears! Drop a message and let’s make your vision
+            Whether it&#39;s a full-stack idea, a data-driven solution, or a dev
+            collab, I&#39;m all ears! Drop a message and let&#39;s make your vision
             real.
           </p>
 
@@ -152,9 +151,8 @@ const Footer = () => {
                   href={info.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-12 h-12 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300 hover:border-purple hover:shadow-[0_0_10px_rgba(123,104,238,0.3)] transition-all"
-                >
-                  <img
+                  className="w-12 h-12 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300 hover:border-purple transition-colors"
+                >                  <Image
                     src={info.img}
                     alt="social icon"
                     width={24}
@@ -245,15 +243,14 @@ const Footer = () => {
                   </span>
                 ) : (
                   <span className="font-medium text-lg">
-                    Let's build your next big thing
+                    Let&apos;s build your next big thing
                   </span>
                 )}
               </button>
             </div>
 
-            {submitStatus === "success" && (
-              <div className="bg-green-900 bg-opacity-40 border border-green-700 text-green-300 p-3 rounded-lg mt-4 text-center">
-                🚀 Message sent! I’ll get back to you faster than a CI/CD
+            {submitStatus === "success" && (              <div className="bg-green-900 bg-opacity-40 border border-green-700 text-green-300 p-3 rounded-lg mt-4 text-center">
+                🚀 Message sent! I&#39;ll get back to you faster than a CI/CD
                 pipeline.
               </div>
             )}
@@ -291,7 +288,7 @@ const Footer = () => {
               rel="noopener noreferrer"
               className="w-10 h-10 cursor-pointer flex justify-center items-center backdrop-filter backdrop-blur-lg saturate-180 bg-opacity-75 bg-black-200 rounded-lg border border-black-300"
             >
-              <img src={info.img} alt="social icon" width={20} height={20} />
+              <Image src={info.img} alt="social icon" width={20} height={20} />
             </a>
           ))}
         </div>

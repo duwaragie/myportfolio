@@ -5,6 +5,7 @@ import { FaLocationArrow } from "react-icons/fa6";
 import { motion, AnimatePresence } from "framer-motion";
 import { BsArrowRightCircleFill } from "react-icons/bs";
 import { IoCloseCircleOutline } from "react-icons/io5";
+import Image from "next/image";
 
 import { projects } from "@/data/index";
 import { PinContainer } from "@/components/ui/3d-pin";
@@ -39,16 +40,18 @@ const ProjectCard = ({ project, className = "", minHeight }: { project: Project;
           <div
             className="absolute inset-0 rounded-3xl overflow-hidden z-0 group-hover:scale-105 transition-transform duration-300"
             style={{ backgroundColor: "#13162D" }}
-          >
-            <img
+          >            <Image
               src="/bg.png"
               alt="Background"
+              width={800}
+              height={600}
               className="w-full h-full object-cover opacity-60"
             />
-          </div>
-          <img
+          </div>          <Image
             src={project.img}
             alt={project.title}
+            width={800}
+            height={600}
             className="absolute top-1/2 left-1/2 z-10 w-full h-full object-cover -translate-x-1/2 -translate-y-1/2 transition-transform duration-300 group-hover:scale-110"
           />
         </div>
@@ -72,7 +75,7 @@ const ProjectCard = ({ project, className = "", minHeight }: { project: Project;
                   transition={{ delay: index * 0.1 }}
                   className="border border-white/[.2] rounded-full bg-black lg:w-10 lg:h-10 w-8 h-8 flex justify-center items-center hover:border-purple/40 transition-colors duration-300"
                 >
-                  <img src={icon} alt="icon" className="p-2" />
+                  <Image src={icon} alt="icon" width={24} height={24} className="p-2" />
                 </motion.div>
               ))}
             </div>
